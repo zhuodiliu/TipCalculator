@@ -69,6 +69,34 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" value="1" minimumValue="1" maximumValue="100" id="Ttx-o0-ctn">
+                                <rect key="frame" x="206" y="324" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="addCompanions:" destination="BYZ-38-t0r" eventType="valueChanged" id="uBW-T8-WPD"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xEi-1A-TkY">
+                                <rect key="frame" x="20" y="328" width="18" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Yx-mD-jYR">
+                                <rect key="frame" x="20" y="373" width="27" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="om4-2w-DkJ">
+                                <rect key="frame" x="203" y="373" width="106" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -78,6 +106,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="DSk-P7-KcR"/>
                     <connections>
+                        <outlet property="addCompanionOp" destination="Ttx-o0-ctn" id="uWg-Oe-WhJ"/>
+                        <outlet property="averageBill" destination="om4-2w-DkJ" id="r9h-2i-BTt"/>
+                        <outlet property="companions" destination="1Yx-mD-jYR" id="59X-NK-3bf"/>
                         <outlet property="inputValue" destination="qRK-F8-VQ8" id="Phx-Rx-44r"/>
                         <outlet property="percentSelect" destination="OOk-O0-q1N" id="hwS-ca-3dR"/>
                         <outlet property="tipValue" destination="kwb-DM-g1R" id="Kpw-4I-EfS"/>
