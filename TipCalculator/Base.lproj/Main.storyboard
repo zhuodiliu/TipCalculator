@@ -104,7 +104,13 @@
                             <outletCollection property="gestureRecognizers" destination="DHA-vP-DqM" appends="YES" id="uPl-eo-ZXB"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="DSk-P7-KcR"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="DSk-P7-KcR">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="bbY-B3-UqW">
+                            <connections>
+                                <segue destination="fdF-th-oRm" kind="push" id="41x-2E-Yru"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addCompanionOp" destination="Ttx-o0-ctn" id="uWg-Oe-WhJ"/>
                         <outlet property="averageBill" destination="om4-2w-DkJ" id="r9h-2i-BTt"/>
@@ -123,6 +129,21 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="496" y="289"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="dDc-6y-jcW">
+            <objects>
+                <viewController id="fdF-th-oRm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fdl-tA-Fep">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="abs-FX-8i8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32R-E3-CT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="289"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k4E-z6-n6D">
