@@ -17,8 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var companions: UILabel!
     @IBOutlet weak var addCompanionOp: UIStepper!
     @IBOutlet weak var averageBill: UILabel!
+    @IBOutlet weak var usePercent: UILabel!
     var numberOfCompanions = 1.0
     var sum = 0.0
+    
+    @IBOutlet weak var percents: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +45,14 @@ class ViewController: UIViewController {
         averageBill.text = String(format: "$%.2f", average)
     }
     
-    
     @IBAction func calculateTip(sender: AnyObject) {
         let value = Double(inputValue.text!) ?? 0.0
-        let tipPercent = [0.15, 0.18, 0.20]
+        var tipPercent = [0.15, 0.18, 0.20]
+        let defaults = NSUserDefaults.standardUserDefaults()
+        tipPercent[0] = Double(defaults.integerForKey("lowPercent") ?? 15) / 100.0
+        tipPercent[1] = Double(defaults.integerForKey("mediumPercent") ?? 18) / 100.0
+        tipPercent[2] = Double(defaults.integerForKey("highPercent") ?? 20) / 100.0
+        
         let tip = value * tipPercent[percentSelect.selectedSegmentIndex]
         sum = value + tip
         tipValue.text = String(format: "$%.2f", tip)
@@ -53,6 +60,7 @@ class ViewController: UIViewController {
         let average = sum / numberOfCompanions
         companions.text = String(Int(numberOfCompanions))
         averageBill.text = String(format: "$%.2f", average)
+        usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
     }
 }
 
