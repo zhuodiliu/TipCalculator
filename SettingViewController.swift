@@ -18,6 +18,13 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        lowPercent.value = Float(defaults.integerForKey("lowPercent") ?? 15) / 100
+        mediumPercent.value = Float(defaults.integerForKey("mediumPercent") ?? 18) / 100
+        highPercent.value = Float(defaults.integerForKey("highPercent") ?? 20) / 100
+        lowP.text = String(format: "%d%%", defaults.integerForKey("lowPercent"))
+        mediumP.text = String(format: "%d%%", defaults.integerForKey("mediumPercent"))
+        highP.text = String(format: "%d%%", defaults.integerForKey("highPercent"))
 
         // Do any additional setup after loading the view.
     }
