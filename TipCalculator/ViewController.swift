@@ -17,11 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var companions: UILabel!
     @IBOutlet weak var addCompanionOp: UIStepper!
     @IBOutlet weak var averageBill: UILabel!
-    @IBOutlet weak var usePercent: UILabel!
     var numberOfCompanions = 1.0
     var sum = 0.0
     var tipPercent = [0.15, 0.18, 0.20]
-    @IBOutlet weak var percents: UISegmentedControl!
     @IBOutlet weak var amountText: UILabel!
     @IBOutlet weak var tipText: UILabel!
     @IBOutlet weak var totalText: UILabel!
@@ -29,6 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadPercents()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -42,7 +41,9 @@ class ViewController: UIViewController {
         tipPercent[0] = Double(defaults.integerForKey("lowPercent") ?? 15) / 100.0
         tipPercent[1] = Double(defaults.integerForKey("mediumPercent") ?? 18) / 100.0
         tipPercent[2] = Double(defaults.integerForKey("highPercent") ?? 20) / 100.0
-        usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
+        percentSelect.setTitle(String(format: "%d%%", defaults.integerForKey("lowPercent") ?? 15), forSegmentAtIndex: 0)
+        percentSelect.setTitle(String(format: "%d%%", defaults.integerForKey("mediumPercent") ?? 18), forSegmentAtIndex: 1)
+        percentSelect.setTitle(String(format: "%d%%", defaults.integerForKey("highPercent") ?? 20), forSegmentAtIndex: 2)
     }
     
     func reCalculate() {
@@ -54,12 +55,11 @@ class ViewController: UIViewController {
         let average = sum / numberOfCompanions
         companions.text = String(Int(numberOfCompanions))
         averageBill.text = String(format: "$%.2f", average)
-        usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
     }
     
     func loadLanguage() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        let languageChoose = defaults.integerForKey("language")
+        let languageChoose = defaults.integerForKey("language") ?? 0
         if languageChoose == 0 {
             amountText.text = "Amount"
             tipText.text = "Tip"
@@ -67,22 +67,23 @@ class ViewController: UIViewController {
             companionText.text = "Companions"
         }
         else if languageChoose == 1 {
-            amountText.text = "AmountS"
-            tipText.text = "TipS"
-            totalText.text = "TotalS"
-            companionText.text = "CompanionsS"
+            amountText.text = "Cantidad"
+            tipText.text = "Extremidad"
+            totalText.text = "Importe"
+            companionText.text = "Colega"
         }
         else {
-            amountText.text = "AmountS"
-            tipText.text = "TipS"
-            totalText.text = "TotalS"
-            companionText.text = "CompanionsS"
+            amountText.text = "金额"
+            tipText.text = "小费"
+            totalText.text = "总价"
+            companionText.text = "同行者"
         }
     }
     
     @IBAction func tapOnScreen(sender: AnyObject) {
         view.endEditing(true)
         loadPercents()
+        reCalculate()
         loadLanguage()
     }
 

@@ -24,9 +24,9 @@
                                 <rect key="frame" x="20" y="245" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Low"/>
-                                    <segment title="Medium"/>
-                                    <segment title="High"/>
+                                    <segment title="15%"/>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
                                 </segments>
                                 <connections>
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="bwc-6b-fRI"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sSf-vW-UzB">
-                                <rect key="frame" x="20" y="136" width="114" height="44"/>
+                                <rect key="frame" x="20" y="136" width="138" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,13 +90,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fOs-tZ-QVO">
-                                <rect key="frame" x="65" y="140" width="46" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Yx-mD-jYR">
                                 <rect key="frame" x="20" y="346" width="38" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,12 +119,10 @@
                         <outlet property="companions" destination="1Yx-mD-jYR" id="59X-NK-3bf"/>
                         <outlet property="inputValue" destination="qRK-F8-VQ8" id="Phx-Rx-44r"/>
                         <outlet property="percentSelect" destination="OOk-O0-q1N" id="hwS-ca-3dR"/>
-                        <outlet property="percents" destination="OOk-O0-q1N" id="1cm-aR-Up0"/>
                         <outlet property="tipText" destination="sSf-vW-UzB" id="3pH-EE-Oqh"/>
                         <outlet property="tipValue" destination="kwb-DM-g1R" id="Kpw-4I-EfS"/>
                         <outlet property="totalText" destination="Rym-YQ-dg6" id="OLx-s1-W4T"/>
                         <outlet property="totalValue" destination="SnT-Jh-v29" id="YSz-W8-NQn"/>
-                        <outlet property="usePercent" destination="fOs-tZ-QVO" id="ohb-aI-Fx5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -221,12 +212,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="pCb-4J-UaA">
+                            <segmentedControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="pCb-4J-UaA">
                                 <rect key="frame" x="20" y="287" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="English"/>
-                                    <segment title="Spanish"/>
+                                    <segment title="Español"/>
+                                    <segment title="中文"/>
                                 </segments>
                                 <connections>
                                     <action selector="languageChanged:" destination="fdF-th-oRm" eventType="valueChanged" id="To0-qk-zxG"/>
@@ -241,11 +233,15 @@
                     <connections>
                         <outlet property="highP" destination="MMR-Md-jSF" id="Ztt-Mn-nuF"/>
                         <outlet property="highPercent" destination="cjL-Zd-snA" id="zSJ-lv-b3K"/>
+                        <outlet property="highText" destination="OUC-AB-oSd" id="ZdI-uA-LuY"/>
                         <outlet property="languageChoose" destination="pCb-4J-UaA" id="h8R-03-eXb"/>
+                        <outlet property="languageText" destination="ZeM-PY-0pJ" id="R4z-i0-Pdq"/>
                         <outlet property="lowP" destination="KnI-xr-bnf" id="W5W-BD-YcZ"/>
                         <outlet property="lowPercent" destination="uuJ-1z-B3h" id="NLV-1G-SY5"/>
+                        <outlet property="lowText" destination="y46-Ba-cKf" id="KPC-Ql-5f9"/>
                         <outlet property="mediumP" destination="2el-CX-Blo" id="4zb-EM-hNq"/>
                         <outlet property="mediumPercent" destination="jZp-ty-tm0" id="83Q-TU-d4F"/>
+                        <outlet property="mediumText" destination="uxK-xI-CV4" id="Ggu-Mv-Sde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32R-E3-CT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
