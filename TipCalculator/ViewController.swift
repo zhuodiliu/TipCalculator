@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     var sum = 0.0
     var tipPercent = [0.15, 0.18, 0.20]
     @IBOutlet weak var percents: UISegmentedControl!
+    @IBOutlet weak var amountText: UILabel!
+    @IBOutlet weak var tipText: UILabel!
+    @IBOutlet weak var totalText: UILabel!
+    @IBOutlet weak var companionText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,27 +43,10 @@ class ViewController: UIViewController {
         tipPercent[1] = Double(defaults.integerForKey("mediumPercent") ?? 18) / 100.0
         tipPercent[2] = Double(defaults.integerForKey("highPercent") ?? 20) / 100.0
         usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
-        
     }
     
-    @IBAction func tapOnScreen(sender: AnyObject) {
-        view.endEditing(true)
-        loadPercents()
-    }
-
-    @IBAction func addCompanions(sender: UIStepper) {
-        let add = addCompanionOp.value
-        numberOfCompanions = add
-        let average = sum / numberOfCompanions
-        companions.text = String(Int(numberOfCompanions))
-        averageBill.text = String(format: "$%.2f", average)
-        usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
-    }
-    
-    @IBAction func calculateTip(sender: AnyObject) {
+    func reCalculate() {
         let value = Double(inputValue.text!) ?? 0.0
-        loadPercents()
-        
         let tip = value * tipPercent[percentSelect.selectedSegmentIndex]
         sum = value + tip
         tipValue.text = String(format: "$%.2f", tip)
@@ -68,6 +55,47 @@ class ViewController: UIViewController {
         companions.text = String(Int(numberOfCompanions))
         averageBill.text = String(format: "$%.2f", average)
         usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
+    }
+    
+    func loadLanguage() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let languageChoose = defaults.integerForKey("language")
+        if languageChoose == 0 {
+            amountText.text = "Amount"
+            tipText.text = "Tip"
+            totalText.text = "Total"
+            companionText.text = "Companions"
+        }
+        else if languageChoose == 1 {
+            amountText.text = "AmountS"
+            tipText.text = "TipS"
+            totalText.text = "TotalS"
+            companionText.text = "CompanionsS"
+        }
+        else {
+            amountText.text = "AmountS"
+            tipText.text = "TipS"
+            totalText.text = "TotalS"
+            companionText.text = "CompanionsS"
+        }
+    }
+    
+    @IBAction func tapOnScreen(sender: AnyObject) {
+        view.endEditing(true)
+        loadPercents()
+        loadLanguage()
+    }
+
+    @IBAction func addCompanions(sender: UIStepper) {
+        numberOfCompanions = addCompanionOp.value
+        reCalculate()
+        loadLanguage()
+    }
+    
+    @IBAction func calculateTip(sender: AnyObject) {
+        loadPercents()
+        reCalculate()
+        loadLanguage()
     }
 }
 

@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jNe-WN-DY7">
-                                <rect key="frame" x="20" y="84" width="91" height="44"/>
+                                <rect key="frame" x="20" y="84" width="114" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,14 +42,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sSf-vW-UzB">
-                                <rect key="frame" x="20" y="136" width="74" height="44"/>
+                                <rect key="frame" x="20" y="136" width="114" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rym-YQ-dg6">
-                                <rect key="frame" x="20" y="195" width="74" height="37"/>
+                                <rect key="frame" x="20" y="195" width="114" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,12 +120,16 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addCompanionOp" destination="Ttx-o0-ctn" id="uWg-Oe-WhJ"/>
+                        <outlet property="amountText" destination="jNe-WN-DY7" id="8im-sZ-EIO"/>
                         <outlet property="averageBill" destination="om4-2w-DkJ" id="r9h-2i-BTt"/>
+                        <outlet property="companionText" destination="xEi-1A-TkY" id="2FZ-PZ-WET"/>
                         <outlet property="companions" destination="1Yx-mD-jYR" id="59X-NK-3bf"/>
                         <outlet property="inputValue" destination="qRK-F8-VQ8" id="Phx-Rx-44r"/>
                         <outlet property="percentSelect" destination="OOk-O0-q1N" id="hwS-ca-3dR"/>
                         <outlet property="percents" destination="OOk-O0-q1N" id="1cm-aR-Up0"/>
+                        <outlet property="tipText" destination="sSf-vW-UzB" id="3pH-EE-Oqh"/>
                         <outlet property="tipValue" destination="kwb-DM-g1R" id="Kpw-4I-EfS"/>
+                        <outlet property="totalText" destination="Rym-YQ-dg6" id="OLx-s1-W4T"/>
                         <outlet property="totalValue" destination="SnT-Jh-v29" id="YSz-W8-NQn"/>
                         <outlet property="usePercent" destination="fOs-tZ-QVO" id="ohb-aI-Fx5"/>
                     </connections>
@@ -224,6 +228,9 @@
                                     <segment title="English"/>
                                     <segment title="Spanish"/>
                                 </segments>
+                                <connections>
+                                    <action selector="languageChanged:" destination="fdF-th-oRm" eventType="valueChanged" id="To0-qk-zxG"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,6 +241,7 @@
                     <connections>
                         <outlet property="highP" destination="MMR-Md-jSF" id="Ztt-Mn-nuF"/>
                         <outlet property="highPercent" destination="cjL-Zd-snA" id="zSJ-lv-b3K"/>
+                        <outlet property="languageChoose" destination="pCb-4J-UaA" id="h8R-03-eXb"/>
                         <outlet property="lowP" destination="KnI-xr-bnf" id="W5W-BD-YcZ"/>
                         <outlet property="lowPercent" destination="uuJ-1z-B3h" id="NLV-1G-SY5"/>
                         <outlet property="mediumP" destination="2el-CX-Blo" id="4zb-EM-hNq"/>

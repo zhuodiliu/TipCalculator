@@ -15,6 +15,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var lowP: UILabel!
     @IBOutlet weak var mediumP: UILabel!
     @IBOutlet weak var highP: UILabel!
+    @IBOutlet weak var languageChoose: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,11 @@ class SettingViewController: UIViewController {
         
     }
 
+    @IBAction func languageChanged(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(languageChoose.selectedSegmentIndex, forKey: "language")
+        defaults.synchronize()
+    }
     /*
     // MARK: - Navigation
 
