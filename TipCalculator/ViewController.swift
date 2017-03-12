@@ -33,8 +33,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadPercents() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        tipPercent[0] = Double(defaults.integerForKey("lowPercent") ?? 15) / 100.0
+        tipPercent[1] = Double(defaults.integerForKey("mediumPercent") ?? 18) / 100.0
+        tipPercent[2] = Double(defaults.integerForKey("highPercent") ?? 20) / 100.0
+        usePercent.text = String(format: "%d%%", Int(tipPercent[percentSelect.selectedSegmentIndex] * 100))
+        
+    }
+    
     @IBAction func tapOnScreen(sender: AnyObject) {
         view.endEditing(true)
+        loadPercents()
     }
 
     @IBAction func addCompanions(sender: UIStepper) {
@@ -48,10 +58,7 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(sender: AnyObject) {
         let value = Double(inputValue.text!) ?? 0.0
-        let defaults = NSUserDefaults.standardUserDefaults()
-        tipPercent[0] = Double(defaults.integerForKey("lowPercent") ?? 15) / 100.0
-        tipPercent[1] = Double(defaults.integerForKey("mediumPercent") ?? 18) / 100.0
-        tipPercent[2] = Double(defaults.integerForKey("highPercent") ?? 20) / 100.0
+        loadPercents()
         
         let tip = value * tipPercent[percentSelect.selectedSegmentIndex]
         sum = value + tip
